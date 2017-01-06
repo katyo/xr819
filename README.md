@@ -20,6 +20,20 @@ and xradio driver shows that the source code for two drivers are
 really similar and the st1200 driver can be improved to support
 both devices.
 
+## Howto build
+
+	make -C path/to/linux/kernel/source \
+	  ARCH=linux-kernel-architecture \
+	  CROSS_COMPILE=cross-compile-target \
+	  CONFIG_WLAN_VENDOR_XRADIO=m \
+	  CONFIG_XRADIO_SDIO=y \
+	  CONFIG_XRADIO_USE_EXTENSIONS=y \
+	  CONFIG_XRADIO_5GHZ_SUPPORT=n \
+	  CONFIG_XRADIO_WAPI_SUPPORT=n \
+	  CONFIG_XRADIO_XR819=y \
+	  M=path/to/xradio/source \
+	  modules
+
 [xr819]: http://linux-sunxi.org/Wifi#Allwinner
 [armbian]: https://github.com/igorpecovnik/lib
 [cert]: http://certifications.prod.wi-fi.org/pdf/certificate/public/download?cid=WFA61880
